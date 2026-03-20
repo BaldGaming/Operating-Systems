@@ -1,0 +1,4 @@
+echo "The date today is: March 18" - prints whatever is in the " "
+date- prints the current date
+history - prints every command sent in the current session
+wc -l
