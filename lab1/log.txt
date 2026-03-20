@@ -1,128 +1,14 @@
-    1  pluma myLab1.txt
-    2  cat myLab1.txt
-    3  myLab1.txt
-    4  echo myLab1.txt
-    5  echo "I am a sigma male"
-    6  echo "We are here: $(pwd)
-    7  "
-    8  cd /bin
-    9  ls
-   10  cd
-   11  man ls
-   12  ls
-   13  ls -l
-   14  pluma my.c
-   15  cc
-   16  cc my.c
-   17  pluma my.c
-   18  cc my.c
-   19  cc my.c -o -o to name it
-   20  cc my.c -o my
-   21  ./mu
-   22  ./my
-   23  date
-   24  data >my.txt
-   25  cat my.txt
-   26  data > my.txt
-   27  cat my.txt
-   28  data > my.txt
-   29  history >> my.txt
-   30  cat my.txt
-   31  date > my.txt
-   32  cat my.txt
-   33  history >> my.txt
-   34  cat my.txt
-   35  grep "printf" my.c
-   36  history >> my.txt
-   37  cat my.txt
-   38  history > my.txt
-   39  cat my.txt
-   40  grep -i "PRINTF" my.c
-   41  ls -l | grep "\.c$"
-   42  ls -l | grep "\.c"
-   43  sleep 10 &
-   44  ps
-   45  echo "The date today is: March 18"
-   46  wc -l
-   47  man wc -l
-   48  man
-   49  man -l
-   50  man wc -l
-   51  cd /.
-   52  wc -l my.txt
-   53  wc -l "my.txt"
-   54  wc -l my
-   55  wc -l myLab1.txt
-   56  cd [200~/home/BRDENG~
-   57  cd /home/BRDENG~
-   58  cd home/BRDENG~
-   59  cd home/BRDENG
-   60  wc -l myLab1.txt
-   61  cd
-   62  wc -l myLab1.txt
-   63  wc -c myLab1.txt
-   64  man -l
-   65  man wc
-   66  man wc head
-   67  man head
-   68  head -n 3 myLab1.txt
-   69  head -n 1 myLab1.txt
-   70  head -n 2 myLab1.txt
-   71  tail -n 1 myLab1.txt
-   72  man touch
-   73  man gcc
-   74  man grep -i
-   75  man chmod
-   76  help chmod
-   77  help
-   78  chmod --help
-   79  help chmod
-   80  man chmod
-   81  echo "mefager 1- 207931437" > crazy.txt
-   82  cat crazy.txt
-   83  man chmod
-   84  touch file1.txt
-   85  echo "Itay - 207931437, Yasmin - 123456789, Lihi - 9876543321" > file1.txt
-   86  cat file1.txt
-   87  echo "Itay - 207931437,\n Yasmin - 123456789,\n Lihi - 9876543321" > file1.txt
-   88  cat file1.txt
-   89  echo -e "Itay - 207931437,\n Yasmin - 123456789,\n Lihi - 9876543321" > file1.txt
-   90  cat file1.txt
-   91  echo -e "Itay - 207931437,\nYasmin - 123456789,\nLihi - 9876543321" > file1.txt
-   92  cat file1.txt
-   93  head -n 2 file1.txt
-   94  mkdir lab1
-   95  cp text1.txt a.txt
-   96  cp file1.txt a.txt
-   97  mv a.txt /home/BRDENG/itay.rosen/lab1
-   98  cd /home/BRDENG/itay.rosen/lab1
-   99  /.
-  100  ..
-  101  cd ..
-  102  cd lab1
-  103  cat a.txt
-  104  echo -c >>  "\ntest 123" a.txt
-  105  cat a.txt
-  106  echo -c >> "\ntest 123" a.txt
-  107  cat a.txt
-  108  echo -e >> "\ntest 123" a.txt
-  109  cat a.txt
-  110  echo -e "\ntest 123" >> a.txt
-  111  cat a.txt
-  112  echo -e "test 123" >> a.txt
-  113  cat a.txt
-  114  diff cd ..file1.txt a.txt
-  115  diff file1.txt a.txt
-  116  diff /itay.rosen/file1.txt a.txt
-  117  diff itay.rosen/file1.txt a.txt
-  118  diff home/BRDENG/itay.rosen/file1.txt a.txt
-  119  diff /home/BRDENG/itay.rosen/file.txt a.txt
-  120  diff /home/BRDENG/itay.rosen/file1.txt a.txt
-  121  date
-  122  clean
-  123  clear
-  124  history
-  125  touch history log.txt
-  126  echo history >> log.txt
-  127  history >> log.txt
-  128  history > log.txt
+    1  touch file1.txt
+    2  echo -e "Yasmin - 323017012\nItay - 207931437\nLihi - 319041109" >> file1.txt
+    3  wc file1.txt
+    4  mkdir lab1
+    5  cp file1.txt a.txt
+    6  mv a.txt lab1
+    7  cat lab1/a.txt
+    8  echo "test 123" >> lab1/a.txt
+    9  diff file1.txt lab1/a.txt
+   10  date
+   11  clear
+   12  history
+   13  touch log.txt
+   14  history > log.txt
