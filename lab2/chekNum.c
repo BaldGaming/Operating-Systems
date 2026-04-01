@@ -12,7 +12,7 @@ int main(int argc, char *argv[]){
 
     // And because there's a need for at least 2 items, argc must be at least 4.
     if (argc < 4){
-        printf("Error! Array must have at least 2 numbers\n");
+        printf("\nError! You must enter the desired sum, and the array must have at least 2 numbers\n");
         exit(1);
     }
     
@@ -32,10 +32,10 @@ int main(int argc, char *argv[]){
     {
         for (j = i + 1; j < size; j++)
             if ((array[i] + array[j]) == num){
-                printf("2 numbers exist : %d + %d = %d\n", array[i], array[j], num);
+                printf("\n2 numbers exist : %d + %d = %d\n", array[i], array[j], num);
                 return 0;
             }
     }
-    printf("2 numbers do no exist\n");
+    printf("\n2 numbers do no exist\n");
 	return 0;
 }
