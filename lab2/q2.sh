@@ -1,5 +1,3 @@
-#!/bin/bash
-
 echo "Compiling 'chekNum.c'..."
 
 cc chekNum.c -o chekNum

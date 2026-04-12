@@ -1,5 +1,3 @@
-#!/bin/bash
-
 echo "Compiling 'catByAt.c'..."
 
 cc catByAt.c -o catByAt

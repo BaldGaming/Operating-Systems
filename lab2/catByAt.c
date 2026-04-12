@@ -1,53 +1,57 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[]) {
     // Argc - counts the amount of words written in the prompt
     // Argv - an array with said words
-    int i;
-    char *str, *token;
-    // argv[0]     - Program name
-    // argv[1]     - num
-    // argv[2]..[n] - list of array items
-    // If no argument was provided.
-    if (argc < 2){
-        printf("Error! You must provide an argument\n");
-        exit (1);
-    }
+    int i = 0, j, k, len;
+    char *str;
 
-    // Stores user input into "str" variable
-	str = argv[1];
-
-    // Check if the string is empty
-    if (str[0] == '\0') {
-        printf("Error! The argument cannot be empty.\n");
+    // If no argument was provided
+    if(argc < 2) {
+        printf("\nERROR\n");
         exit(1);
     }
 
-    // Checks if there are spaces in the prompt
-    for (i = 0; str[i] != '\0'; i++)
-        if (isspace(str[i])){
-            printf("Error! The argument mustn't have spaces in it.\n");
-            exit (1);
+    // Stores user input into "str" variable
+    str = argv[1];
+    // Gets the length of "srt"
+    len = strlen(str);
+    // Creates a buffer for the current word
+    char res[len + 1];
+
+    // Loops through the entire string
+    while(i < len) {
+        j = i; // Current position in the source string
+        k = 0; // Current position in our result buffer
+
+        // Processes characters until an underscore or the end of the string is hit
+        while(str[j] != '_' && str[j] != '\0') {
+            
+            // Checks for spaces
+            if (str[j] == ' ')
+            {
+                printf("\nNo spaces allowed!");
+                exit(1);
+            }
+            
+            // Lower to uppercase conversion
+            if(str[j] >= 'a' && str[j] <= 'z')
+                res[k] = str[j] - 32;
+            else
+                res[k] = str[j];
+
+            j++; // Moves to the next character in the source
+            k++; // Moves to the next position in the result buffer
         }
-    
-    // Gets the first word in the string
-    token = strtok(str, "_");
 
-    // Loops through the rest of the tokens
-    while (token != NULL) {
+        // Last character must be a '\0'
+        res[k] = '\0';
+        printf("%s\n", res);
 
-        // We uppercase each letter in said token
-        for (int j = 0; token[j] != '\0'; j++)
-            token[j] = toupper(token[j]);
-
-        printf("%s\n", token);
-
-        // Gets the rest of the words
-        token = strtok(NULL, "_");
+        // Moves the main index 'i' to the character immediately after the underscore
+        i = j + 1;
     }
-    
-	return 0;
+    return 0;
 }

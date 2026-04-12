@@ -1,5 +1,3 @@
-#!/bin/bash
-
 echo "START"
 
 echo "Enter folder name: $1"
