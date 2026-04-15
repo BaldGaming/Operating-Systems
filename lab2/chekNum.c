@@ -7,8 +7,8 @@ int main(int argc, char *argv[]){
     int num, size, i, j;
 
     // argv[0]     - Program name
-    // argv[1]     - num
-    // argv[2]..[n] - list of array items
+    // argv[1]     - num (the '100' in the run example)
+    // argv[2]..[n] - list of array items (the rest of the numbers we are adding up)
 
     // And because there's a need for at least 2 items, argc must be at least 4.
     if (argc < 4){

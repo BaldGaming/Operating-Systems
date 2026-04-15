@@ -4,4 +4,4 @@ cc chekNum.c -o chekNum
 
 echo -e "\nRunning test for: '$@'..."
 
-./chekNum "$@"
+./chekNum $@
