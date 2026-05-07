@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <dirent.h>
+#include <fcntl.h> // for file control
+#include <unistd.h> // read write, close
+#include <sys/stat.h> // mkdir
+#include <dirent.h> // opendir
 
 // Argc - counts the amount of words written in the prompt
 // Argv - an array with said words

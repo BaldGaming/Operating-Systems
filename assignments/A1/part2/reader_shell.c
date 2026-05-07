@@ -12,18 +12,17 @@ int main(int argc, char *argv[]) {
 
     // Checks to see if the user provided enough arguments (exactly 1)
     if (argc != 1) {
-        printf("\nError! You must have exactly 1 parameters.\n");
+        printf("\nError! This program does not accept additional arguments.\n");
         exit(1);
     }
 
     char input[SIZE] = "";
 
-    // A continuous loop so long as the user input isn't 'q'.
     while(1) {
         // Gets user input
-        printf("$");
+        printf("\nReader$** ");
         if (fgets(input, sizeof(input), stdin) == NULL) {
-            perror("scanf failed!\n");
+            perror("fgets failed!\n");
             exit(1);
         }
         
@@ -31,7 +30,7 @@ int main(int argc, char *argv[]) {
         input[strcspn(input, "\n")] = '\0';
 
         // Stop condition
-        if (strcmp(input, "q") == 0)
+        if (strcmp(input, "Esc") == 0)
             break;
 
         // Initializes a new process and checks for errors
@@ -45,14 +44,13 @@ int main(int argc, char *argv[]) {
         // Child process
         if (pid == 0) {
             if (execlp(input, input, NULL) == -1)
-                printf("ERROR\n");
+                printf("Not Supported\n");
                 exit(1); // Kills the child process if fork() fails.
         }
         
         // Parent process isn't supposed to do anything
         else wait(NULL);
     }
-
-    printf("END\n");
+    printf("Returning to LibShell...\n");
     return 0;
 }
