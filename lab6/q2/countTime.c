@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
     for (i = 0; i < N; i++)
         counters[i] = 0;
 
-    pthread_t threads[N + 1]; // This stores the thread identifier
+    pthread_t threads[N + 1]; // This stores the thread identifiers
 
     // Fail check
     if (threads == NULL) {
