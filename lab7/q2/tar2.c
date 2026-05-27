@@ -50,6 +50,7 @@ int main(int argc, char *argv[]) {
 
     pthread_t thread1, thread2;
 
+    // We create the threads and send them to do their jobs in divisorsSum
     if (pthread_create(&thread1, NULL, divisorsSum, &N) != 0 ||
         pthread_create(&thread2, NULL, divisorsSum, &M) != 0) {
         printf("Error creating threads\n");
@@ -79,7 +80,7 @@ int main(int argc, char *argv[]) {
     // Print the result
     (sumN == M && sumM == N) ? printf("Amicable Numbers\n") : printf("Not Amicable Numbers\n");
 
-    // Free the allocated memory
+    // Free the allocated memory that points to the block of memory we allocated in the function
     free(res1);
     free(res2);
 
