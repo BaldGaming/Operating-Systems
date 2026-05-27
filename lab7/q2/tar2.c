@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
         exit(1);
         }
 
-    // We catch each res value created by the threads
+    // This is used to catch each res value created by the threads
     void *res1 = NULL;
     void *res2 = NULL;
 
@@ -89,19 +89,17 @@ int main(int argc, char *argv[]) {
 // This function sums the divisors of any given positive integer
 void* divisorsSum(void* arg) {
     int n = *(int*)arg;
-    int sum = 0, i;
+    int i;
+    
+    // Allocate memory towards returned value
+    int* sum = calloc(1, sizeof(int));
+    if (sum == NULL)
+        pthread_exit(NULL);
 
     // Divisor algorithm
     for (i = 1; i < n; i++)
         if (n % i == 0)
-            sum += i;
+            *sum += i;
 
-    // Assign to the correct global variable depending on which number we processed
-    int* res = malloc(sizeof(int));
-    if (res == NULL)
-        pthread_exit(NULL);
-
-    *res = sum;
-
-    return res;
+    return sum;
 }
