@@ -7,7 +7,7 @@
 
 #define SIZE 4096
 
-int nReturn = 0, mReturn = 0, N, M;
+int N, M;
 
 void* divisorsSum(void* arg);
 
@@ -24,12 +24,12 @@ int main(int argc, char *argv[]) {
         exit(1);
     }
 
-    int i;
+    int i, sumN, sumM;
     char inputBuffer[SIZE] = "";
 
     // We capture the integer from argv[1]
     if (sscanf(argv[1], "%d", &N) == 1 && N >= 0 &&
-        sscanf(argv[2], "%d", &M) == 1 && N >= 0) {}
+        sscanf(argv[2], "%d", &M) == 1 && M >= 0) {}
 
     // If capture fails
     else {
@@ -56,10 +56,32 @@ int main(int argc, char *argv[]) {
         exit(1);
         }
 
-    pthread_join(thread1, NULL);
-    pthread_join(thread2, NULL);
+    // We catch each res value created by the threads
+    void *res1 = NULL;
+    void *res2 = NULL;
 
-    (nReturn == M && mReturn == N) ? printf("Amicable Numbers\n") : printf("Not Amicable Numbers\n");
+    // We transfer the returned value into the variables we just defined
+    pthread_join(thread1, &res1);
+    pthread_join(thread2, &res2);
+
+    // Safety check
+    if (res1 == NULL || res2 == NULL) {
+        printf("ERROR! Thread failed to calculate sum.\n");
+        free(res1);
+        free(res2);
+        exit(1);
+    }
+
+    // Cast the void* back to int* and pull the values out
+    sumN = *(int*)res1;
+    sumM = *(int*)res2;
+
+    // Print the result
+    (sumN == M && sumM == N) ? printf("Amicable Numbers\n") : printf("Not Amicable Numbers\n");
+
+    // Free the allocated memory
+    free(res1);
+    free(res2);
 
     return 0;
 }
@@ -75,11 +97,11 @@ void* divisorsSum(void* arg) {
             sum += i;
 
     // Assign to the correct global variable depending on which number we processed
-    if (n == N)
-        nReturn = sum;
-    else
-        mReturn = sum;
+    int* res = malloc(sizeof(int));
+    if (res == NULL)
+        pthread_exit(NULL);
 
-    // Kill le epic child proccess
-    return NULL;
+    *res = sum;
+
+    return res;
 }
