@@ -91,7 +91,7 @@ int main(int argc, char *argv[]) {
 void* divisorsSum(void* arg) {
     int n = *(int*)arg;
     int i;
-    
+
     // Allocate memory towards returned value
     int* sum = calloc(1, sizeof(int));
     if (sum == NULL)
