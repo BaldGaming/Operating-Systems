@@ -8,9 +8,9 @@ sem_t sem;
 
 void* produce() {
     while(1) {
+        sleep(2);
         printf("Produced A\n");
         sem_post(&sem);
-        sleep(2);
     }
 }
 
