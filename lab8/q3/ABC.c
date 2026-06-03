@@ -32,7 +32,7 @@ void* C(void*) {
         sem_post(&semA);
     }
 }
- 
+
 int main (){
     // Initialize 3 threads and 3 semaphores
     pthread_t thread1, thread2, thread3;
