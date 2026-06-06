@@ -3,39 +3,51 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdlib.h>
+#define N 100
 
-sem_t sem;
+sem_t board, exit, wait;
 
-void* produce() {
-    while(1) {
-        sleep(2);
-        printf("Produced A\n");
-        sem_post(&sem);
-    }
-}
+void passenger(int id);
+void TAXI(int time);
 
-void* collect() {
-    while(1) {
-        sem_wait(&sem);
-        sem_wait(&sem);
-        printf("Collected AA\n");
-    }
-}
- 
-int main (){
-    // Initialize
-    pthread_t thread1, thread2;
-    sem_init(&sem, 0, 0);
+int main(int argc, char *argv[])
+{
+    pthread_t tArr[N], tTaxi;
+    int i, ans[N];
 
-    // Create the thread
-    pthread_create(&thread1, NULL, produce, NULL);
-    pthread_create(&thread2, NULL, collect, NULL);
+    sem_init(&board, 0, 0);
+    sem_init(&exit, 0, 0);
+    sem_init(&wait, 0, 0);
 
-    // wait 20 seconds
-    sleep(20);
+    // We create N threads and tell them to line up students for the taxi
+    for (i = 0; i < N; i++)
+        ans[i] = pthread_create(&tArr[i], NULL, passenger, (void*)i);
 
-    // Kill the semaphore
-    sem_destroy(&sem);
+    // We create a thread that manages the taxi
+    pthread_create(&tTaxi, NULL, TAXI, NULL);
+
+    sleep(60);
+
+    // Kill le epic semaphores
+    sem_destroy(&board);
+    sem_destroy(&exit);
+    sem_destroy(&wait);
 
     return 0;
+}
+
+void passenger(int id)
+{
+    sem_wait(&wait); // wait until the taxi allows for students to board
+    printf("")
+    for (int i = 0; i < 4; i ++) {
+        sem_post(&board); // let 4 students board
+        
+    }
+}
+
+void TAXI(int time)
+{
+    sem_post(&wait);
 }
