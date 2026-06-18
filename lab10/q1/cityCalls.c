@@ -83,7 +83,7 @@ void Calls(int City1, int City2)
         sem_wait(&mutex_prio);
         sem_post(&mutex_prio);
     }
-
+    
     // Critical Section, where we kock the secretaries
     sem_wait(&semArr[first]);
     sem_wait(&semArr[second]);
